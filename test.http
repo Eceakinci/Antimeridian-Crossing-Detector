@@ -1,0 +1,7 @@
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"coordinates": [170.5, 45.0]},
+  "point2": {"coordinates": [-175.3, 50.2]}
+}
