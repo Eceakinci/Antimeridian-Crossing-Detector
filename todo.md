@@ -8,14 +8,20 @@
 **Terminal:**
 - uvicorn main:app --reload
 
+-------------------
 
 **Sources:**
 - https://blog.postman.com/how-to-build-an-api-in-python/
 - GeoJSON as a standard
+
 -------------------
+
 **Endpoint:** `POST /api/check-antimeridian`
+
 -------------------
+
 **Input**
+
 {
 "point1": {
 "type": "Point",
@@ -26,8 +32,11 @@
 "coordinates": [-175.3, 50.2]
 }
 }
+
 -------------------
+
 **Output**
+
 {
   "point1": {
     "longitude": 170.5,
