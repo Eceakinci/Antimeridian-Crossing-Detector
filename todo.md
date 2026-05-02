@@ -1,9 +1,10 @@
 - [X] Implement main function that gets request and returns response
 - [X] Implement a model, structure of response and request 
 - [X] FastAPI, Uvicorn
+-----
 - [] Implement test
-
-- [] Additional responses based on the request, if any, e.g. approximate name of the given long/lang
+- [] ? Approximate name of the given long/lang 
+- [] ? Degrees, Minutes, Secondes (DMS) Coordinates
 
 **Commands:**
 - Run Server:
