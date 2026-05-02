@@ -1,12 +1,15 @@
-- [] Implement main function that gets request and returns response
-- [] Implement a model, structure of response and request 
-- [] FastAPI, Uvicorn
+- [X] Implement main function that gets request and returns response
+- [X] Implement a model, structure of response and request 
+- [X] FastAPI, Uvicorn
 - [] Implement test
 
 - [] Additional responses based on the request, if any, e.g. approximate name of the given long/lang
 
-**Terminal:**
-- uvicorn main:app --reload
+**Commands:**
+- Run Server:
+  - uvicorn main:app --reload
+- Run Tests:
+  - pytest test_api.py -v
 
 -------------------
 
@@ -23,14 +26,14 @@
 **Input**
 
 {
-"point1": {
-"type": "Point",
-"coordinates": [170.5, 45.0]
-},
-"point2": {
-"type": "Point",
-"coordinates": [-175.3, 50.2]
-}
+  "point1": {
+    "type": "Point",
+    "coordinates": [170.5, 45.0]
+  },
+  "point2": {
+    "type": "Point",
+    "coordinates": [-175.3, 50.2]
+  }
 }
 
 -------------------

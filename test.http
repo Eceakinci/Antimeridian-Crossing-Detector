@@ -1,7 +1,86 @@
+# Invalid longitude - exceeds 360
 POST http://127.0.0.1:8000/api/check-antimeridian
 Content-Type: application/json
 
 {
-  "point1": {"coordinates": [170.5, 45.0]},
-  "point2": {"coordinates": [-175.3, 50.2]}
+  "point1": {"type": "Point", "coordinates": [999, 45]},
+  "point2": {"type": "Point", "coordinates": [-175.5, 50.2]}
+}
+
+###
+
+# Invalid request - longitude is string
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "Point", "coordinates": ["", 45.0]},
+  "point2": {"type": "Point", "coordinates": [-175.3, 50.2]}
+}
+
+###
+
+# Invalid request - type is not Point
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "LineString", "coordinates": [1, 20]},
+  "point2": {"type": "Point", "coordinates": [-175.3, 50.2]}
+}
+
+###
+
+
+# Invalid request -  there is only one point
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point2": {"type": "Point", "coordinates": [-180, 45]}
+}
+
+###
+
+# Valid request - should cross antimeridian
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "Point", "coordinates": [170.5, 45.0]},
+  "point2": {"type": "Point", "coordinates": [-175.3, 50.2]}
+}
+
+###
+
+# Valid request -  should not cross antimeridian
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "Point", "coordinates": [0, 45.0]},
+  "point2": {"type": "Point", "coordinates": [0, 50.2]}
+}
+
+
+###
+
+# Valid request - but -180 and 180 is the same point
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "Point", "coordinates": [180, 45]},
+  "point2": {"type": "Point", "coordinates": [-180, 45]}
+}
+
+###
+
+# Valid request -  should not cross antimeridian
+POST http://127.0.0.1:8000/api/check-antimeridian
+Content-Type: application/json
+
+{
+  "point1": {"type": "Point", "coordinates": [180, 90]},
+  "point2": {"type": "Point", "coordinates": [180, -90]}
 }
