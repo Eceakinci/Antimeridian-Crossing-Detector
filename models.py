@@ -20,6 +20,9 @@ class GeoPoint:
             ValueError: if coordinates are out of valid range or type is not "Point"
         """
 
+        if len(coordinates) != 2:
+            raise ValueError(f"Coordinates must have exactly 2 values, got: {len(coordinates)}")
+
         longitude, latitude = coordinates
 
         if not all(isinstance(c, (int, float)) for c in coordinates):
@@ -30,8 +33,6 @@ class GeoPoint:
             raise ValueError(f"Longitude must be between -180 and 180, got {longitude}")
         if not (-90 <= latitude <= 90):
             raise ValueError(f"Latitude must be between -90 and 90, got {latitude}")
-        if len(coordinates) != 2:
-            raise ValueError(f"Coordinates must have exactly 2 values, got: {len(coordinates)}")
 
         self.geo_type = geo_type
         self.longitude = longitude

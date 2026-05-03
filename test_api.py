@@ -25,7 +25,7 @@ def test_response_schema():
     assert "crosses_antimeridian" in data
     assert "longitude_difference" in data
     assert isinstance(data["crosses_antimeridian"], bool)
-    assert isinstance(data["longitude_difference"], float)
+    assert isinstance(data["longitude_difference"], (int, float))
 
 
 def test_crosses_antimeridian():

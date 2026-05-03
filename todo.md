@@ -2,9 +2,10 @@
 - [X] Implement a model, structure of response and request 
 - [X] FastAPI, Uvicorn
 -----
-- [] Implement test
-- [] ? Approximate name of the given long/lang 
-- [] ? Degrees, Minutes, Secondes (DMS) Coordinates
+- [X] Implement test
+-----
+BugFix
+- [] Check length of coordinates before assigning longitude and latitude in the model.
 
 **Commands:**
 - Run Server:
