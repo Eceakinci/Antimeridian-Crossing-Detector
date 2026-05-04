@@ -5,7 +5,7 @@
 - [X] Implement test
 -----
 BugFix
-- [] Check length of coordinates before assigning longitude and latitude in the model.
+- [X] Check length of coordinates before assigning longitude and latitude in the model.
 
 **Commands:**
 - Run Server:

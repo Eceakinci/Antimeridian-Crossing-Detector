@@ -11,13 +11,13 @@ A REST API that determines whether a satellite pass between two geographic point
 ```bash
 git clone https://github.com/Eceakinci/Antimeridian-Crossing-Detector.git
 cd Antimeridian-Crossing-Detector
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## Run
 
 ```bash
-uvicorn main:app --reload
+python -m uvicorn main:app --reload
 ```
 
 The API will be available at `http://localhost:8000/docs`.
@@ -79,5 +79,5 @@ Invalid input returns `422` with an `error` field describing the problem.
 ## Tests
 
 ```bash
-pytest
+python -m pytest
 ```
