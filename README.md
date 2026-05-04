@@ -9,6 +9,8 @@ A REST API that determines whether a satellite pass between two geographic point
 ## Setup
 
 ```bash
+git clone https://github.com/Eceakinci/Antimeridian-Crossing-Detector.git
+cd Antimeridian-Crossing-Detector
 pip install -r requirements.txt
 ```
 
@@ -18,8 +20,7 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 
-The API will be available at http://localhost:8000.
-Interactive docs (Swagger UI) at http://localhost:8000/docs.
+The API will be available at `http://localhost:8000/docs`.
 
 ## Endpoint
 
@@ -53,6 +54,18 @@ Interactive docs (Swagger UI) at http://localhost:8000/docs.
   "crosses_antimeridian": true,
   "longitude_difference": 345.8
 }
+```
+
+**Example (Linux/macOS)**
+```bash
+curl -X POST http://localhost:8000/api/check-antimeridian \
+  -H "Content-Type: application/json" \
+  -d '{"point1": {"type": "Point", "coordinates": [170.5, 45.0]}, "point2": {"type": "Point", "coordinates": [-175.3, 50.2]}}'
+```
+
+**Example (Windows Command Prompt)**
+```cmd
+curl -X POST http://localhost:8000/api/check-antimeridian -H "Content-Type: application/json" -d "{\"point1\": {\"type\": \"Point\", \"coordinates\": [170.5, 45.0]}, \"point2\": {\"type\": \"Point\", \"coordinates\": [-175.3, 50.2]}}"
 ```
 
 **Validation rules**
